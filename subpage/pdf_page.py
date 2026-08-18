@@ -2,7 +2,7 @@ import streamlit as st
 
 from tools.pdf import extract_pdf_text
 from tools.summary import ai_summary
-
+from tools.rag_chatbot import rag_query, initialize_rag
 
 def show_pdf_page():
 
@@ -53,5 +53,11 @@ def show_pdf_page():
             if not question.strip():
                 st.warning("请输入问题")
             else:
-                # RAG waiting list
-                pass
+                with st.spinner("正在生成回复..."):
+                    chunks = initialize_rag(text)
+                    answer = rag_query(
+                        question,
+                        chunks,
+                    )
+
+                    st.write(answer)
