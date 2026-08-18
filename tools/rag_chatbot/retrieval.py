@@ -6,7 +6,6 @@ from rank_bm25 import BM25Okapi
 
 from tools.rag_chatbot.config import BM25_WEIGHT, TFIDF_WEIGHT, TOP_K
 
-
 def retrieve_chunks(question, chunks):
     tokenized_chunks = [
         doc.page_content.lower().split()

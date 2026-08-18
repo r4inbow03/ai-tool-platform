@@ -1,6 +1,6 @@
 import streamlit as st
+from pypdf import PdfReader
 
-from tools.pdf import extract_pdf_text
 from tools.summary import ai_summary
 from tools.rag_chatbot import rag_query, initialize_rag
 
@@ -19,7 +19,15 @@ def show_pdf_page():
 
     st.success(f"已上传：{file.name}")
 
-    text = extract_pdf_text(file)
+    reader = PdfReader(file)
+    text = ""
+
+    for page in reader.pages:
+            page_text = page.extract_text()
+            if page_text:
+                text += page_text + "\n"
+    
+    text = text.strip()
 
     if not text:
         st.error("无法从该PDF中提取文本")
@@ -31,7 +39,7 @@ def show_pdf_page():
             "AI摘要总结",
             "自行提问",
         ],
-        horizontal=True
+        horizontal = True
     )
 
     if direction == "AI摘要总结":
