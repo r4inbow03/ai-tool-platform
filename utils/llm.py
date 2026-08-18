@@ -7,16 +7,16 @@ load_dotenv()
 
 def get_client():
     return OpenAI(
-        api_key=os.getenv("OPENROUTER_API_KEY"),
-        base_url="https://openrouter.ai/api/v1"
+        api_key = os.getenv("OPENROUTER_API_KEY"),
+        base_url = "https://openrouter.ai/api/v1"
     )
 
 def call_llm(prompt: str, model: str):
     client = get_client()
 
     response = client.chat.completions.create(
-        model=model,
-        messages=[
+        model = model,
+        messages = [
             {
                 "role": "user",
                 "content": prompt

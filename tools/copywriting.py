@@ -1,12 +1,12 @@
 from utils.llm import call_llm
 
-DEFAULT_MODEL = "openai/gpt-oss-20b:free"
+from config import COPYWRITING_MODEL
 
 def generate_copywriting(
     product: str,
     target_audience: str,
     style: str,
-    model: str = DEFAULT_MODEL
+    model: str = COPYWRITING_MODEL
 ) -> str:
 
     prompt = f"""

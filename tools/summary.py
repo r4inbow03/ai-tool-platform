@@ -1,10 +1,10 @@
 from utils.llm import call_llm
 
-DEFAULT_MODEL = "google/gemma-4-26b-a4b-it:free"
+from config import SUMMARY_MODEL
 
 def ai_summary(
     text: str,
-    model: str = DEFAULT_MODEL
+    model: str = SUMMARY_MODEL
 ) -> str:
 
     prompt = f"""

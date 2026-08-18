@@ -2,9 +2,7 @@ from tools.rag_chatbot.retrieval import retrieve_chunks
 from tools.rag_chatbot.prompt import build_prompt
 from utils.llm import call_llm
 
-DEFAULT_MODEL = "google/gemma-4-26b-a4b-it:free"
-
-model = DEFAULT_MODEL
+from config import RAG_MODEL
 
 def rag_query(question, chunks):
     results = retrieve_chunks(question, chunks)
@@ -21,7 +19,7 @@ def rag_query(question, chunks):
 
     answer = call_llm(
         prompt,
-        model
+        RAG_MODEL
     )
 
     return answer

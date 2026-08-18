@@ -1,10 +1,10 @@
 from utils.llm import call_llm
 
-DEFAULT_MODEL = "google/gemma-4-26b-a4b-it:free"
+from config import TRANSLATION_MODEL
 
 def translate_cn_to_en(
     text: str,
-    model: str = DEFAULT_MODEL
+    model: str = TRANSLATION_MODEL
 ) -> str:
 
     prompt = f"""
@@ -24,7 +24,7 @@ the text is below:
 
 def translate_en_to_cn(
     text: str,
-    model: str = DEFAULT_MODEL
+    model: str = TRANSLATION_MODEL
 ) -> str:
 
     prompt = f"""
