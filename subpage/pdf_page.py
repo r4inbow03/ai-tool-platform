@@ -53,5 +53,5 @@ def show_pdf_page():
             if not question.strip():
                 st.warning("请输入问题")
             else:
-                # 后续接 RAG
+                # RAG waiting list
                 pass
