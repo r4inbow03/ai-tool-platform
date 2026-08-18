@@ -94,15 +94,16 @@ ai-tool-platform/
 │   └── ...
 │
 ├── tools/
-│   ├── translation.py
 │   ├── ...
 │   └── ...
+│   ├── rag_chatbot/
+│       ├── config.py
+│       ├── ...
+│       ├── ...
 │
-├── rag/
-│   └── ...
+├── utils/
+│   └── llm.py
 │
-├── config.py
-├── llm.py
 ├── prompt.py
 ├── requirements.txt
 ├── README.md
