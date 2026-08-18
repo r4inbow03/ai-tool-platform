@@ -1,6 +1,6 @@
 from utils.llm import call_llm
 
-DEFAULT_MODEL = "google/gemma-4-26b-a4b-it:free"
+DEFAULT_MODEL = "openai/gpt-oss-20b:free"
 
 def generate_copywriting(
     product: str,
